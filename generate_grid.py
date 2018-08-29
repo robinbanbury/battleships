@@ -26,7 +26,7 @@ def generate_starting_grid(grid_width=10, grid_height=10):
                 else:
                     x = ship_coordinates[i - 1][0] + directions[chosen_direction][0]
                     y = ship_coordinates[i - 1][1] + directions[chosen_direction][1]
-                ship_coordinates.append([x, y])
+                ship_coordinates.append([x, y, 1])
 
             if validate_ship_coordinates(ship_coordinates, all_ship_coordinates, grid_width, grid_height):
                 #print('Valid choice: {}'.format(ship_coordinates))
@@ -37,15 +37,21 @@ def generate_starting_grid(grid_width=10, grid_height=10):
                 # print('INVALID CHOICE! {}'.format(ship_coordinates))
                 valid_ship_chosen = False
 
-    # print('---------')
+    print('---------')
     # for ship in all_ship_coordinates:
     #     print(ship)
 
-    matrix = generate_grid_coordinates_with_statues(all_ship_coordinates, grid_width, grid_height)
-    # print('---------')
-    # for row in matrix:
-    #     print(row)
-    return matrix
+    # print(all_ship_coordinates[0])
+    # return all_ship_coordinates[0]
+    flat_list = [item for sublist in all_ship_coordinates for item in sublist]
+    print(flat_list)
+    return(flat_list)
+
+    # matrix = generate_grid_coordinates_with_statues(all_ship_coordinates, grid_width, grid_height)
+    # # print('---------')
+    # # for row in matrix:
+    # #     print(row)
+    # return matrix
 
 
 # Check that a given ship does not excede the boundaries of the grid, and do not use any coordinates already in use
