@@ -80,4 +80,5 @@ def coordinate_is_in_ships_coordinates(x_coord, y_coord, all_ship_coordinates):
                 return True
     return False
 
-generate_starting_grid()
+if __name__ == '__main__':
+    generate_starting_grid()
